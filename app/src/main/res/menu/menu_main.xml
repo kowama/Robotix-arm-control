@@ -1,0 +1,44 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ensate.robot_arm_control.MainActivity">
+    <item
+        android:id="@+id/connect_scan_menu_item"
+        android:icon="@drawable/ic_bluetooth_searching"
+        android:title="@string/connect_device"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/full_screen_menu_item"
+        android:icon="@drawable/ic_fullscreen"
+        android:title="@string/action_full_screen"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_connect_scan"
+        android:title="@string/connect_device"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/discoverable"
+        android:title="@string/discoverable"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_full_screen"
+        android:orderInCategory="100"
+        android:title="@string/action_full_screen"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="100"
+        android:title="@string/action_help"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:title="@string/action_about"
+        app:showAsAction="never" />
+</menu>
