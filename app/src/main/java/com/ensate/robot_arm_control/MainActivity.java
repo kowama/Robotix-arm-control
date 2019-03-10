@@ -73,13 +73,13 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Views items
      **/
-    ImageView mConnectionStateImageView;
+    private ImageView mConnectionStateImageView;
 
 
     /**
      * useful members local var
      */
-    boolean doubleBackToExitPressedOnce = false;
+    private boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -261,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
         } else {
             // Bluetooth is now enabled
-            mConnectScanMenuItem.setIcon(R.drawable.ic_bluetooth_blue);
+            mConnectScanMenuItem.setIcon(R.drawable.ic_bluetooth_on);
         }
         // Launch the ConnectDeviceActivity to see devices and do scan
         Intent serverIntent = new Intent(getApplicationContext(), ConnectDeviceActivity.class);
@@ -285,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
                 // When the request to enable Bluetooth returns
                 if (resultCode == Activity.RESULT_OK) {
                     // Bluetooth is now enabled
-                    mConnectScanMenuItem.setIcon(R.drawable.ic_bluetooth_blue);
+                    mConnectScanMenuItem.setIcon(R.drawable.ic_bluetooth_on);
                 } else {
                     // User did not enable Bluetooth or an error occurred
                     Toast.makeText(MainActivity.this, R.string.bt_not_enabled_leaving,

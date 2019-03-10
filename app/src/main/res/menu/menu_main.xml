@@ -4,7 +4,7 @@
     tools:context="com.ensate.robot_arm_control.MainActivity">
     <item
         android:id="@+id/connect_scan_menu_item"
-        android:icon="@drawable/ic_bluetooth_searching"
+        android:icon="@drawable/ic_settings_bluetooth"
         android:title="@string/connect_device"
         app:showAsAction="ifRoom" />
     <item
