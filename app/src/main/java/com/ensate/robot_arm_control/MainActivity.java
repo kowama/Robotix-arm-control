@@ -6,6 +6,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,8 +70,15 @@ public class MainActivity extends AppCompatActivity {
      **/
     private SharedPreferences mPrefs;
 
+    /**
+     * Views items
+     **/
+    ImageView mConnectionStateImageView;
 
-    //var
+
+    /**
+     * useful members local var
+     */
     boolean doubleBackToExitPressedOnce = false;
 
     @Override
@@ -90,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             MainActivity.this.finish();
         }
         //initMembers and setup control pad
-        setupControlPadView();
+        setupView();
         //load user prefs
         loadPreference();
     }
@@ -99,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
+        mConnectScanMenuItem = menu.getItem(0);
         return true;
     }
 
@@ -228,8 +237,11 @@ public class MainActivity extends AppCompatActivity {
     /**
      * setup Controls PadView
      */
-    private void setupControlPadView() {
-
+    private void setupView() {
+        mConnectionStateImageView = findViewById(R.id.connectionStateImageView);
+        mConnectionStateImageView.setImageResource(R.drawable.not_connected_animation);
+        AnimationDrawable anim = (AnimationDrawable) mConnectionStateImageView.getDrawable();
+        anim.start();
     }
 
     private void openConnectActivity() {
