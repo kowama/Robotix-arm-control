@@ -121,12 +121,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
             case R.id.action_settings: {
-                //Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
-                // startActivityForResult(i, UPDATE_SETTING);
+                Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivityForResult(i, UPDATE_SETTING);
                 return true;
             }
             case R.id.action_help: {
-                openHelpActivity();
+                Intent i = new Intent(getApplicationContext(), HelpActivity.class);
+                startActivity(i);
                 return true;
             }
             default: {
@@ -222,14 +223,6 @@ public class MainActivity extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
-    }
-
-    /**
-     * open helpActivity
-     */
-    private void openHelpActivity() {
-        Intent i = new Intent(getApplicationContext(), HelpActivity.class);
-        startActivity(i);
     }
 
     /**
