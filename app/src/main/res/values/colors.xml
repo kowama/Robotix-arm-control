@@ -7,7 +7,7 @@
     <color name="secodaryTextColor">#FFFFFF</color>
     <color name="colorAccent">#007277</color>
     <color name="btn_bg_default">#3C3939</color>
-    <color name="btn_bg_pressed">#1976D2</color>
+    <color name="btn_bg_pressed">#FAB81A</color>
     <color name="backgroundPrimary">#0CA1A6</color>
     <color name="backgroundSecondary">#0CA1A6</color>
     <color name="blue">#18618A</color>

@@ -1,5 +1,6 @@
 package com.ensate.robot_arm_control;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         mDecorView = getWindow().getDecorView();
         // hide system ui
         hideSystemUI();
+        findViewById(R.id.saveButton);
     }
 
     @Override
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
             case R.id.action_help: {
-                //openHelpActivity();
+                openHelpActivity();
                 return true;
             }
             default: {
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 
     /******========Private methods===========******/
     /**
@@ -93,6 +96,14 @@ public class MainActivity extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
+    }
+
+    /**
+     * open helpActivity
+     */
+    private void openHelpActivity() {
+        Intent i = new Intent(getApplicationContext(), HelpActivity.class);
+        startActivity(i);
     }
 
 }

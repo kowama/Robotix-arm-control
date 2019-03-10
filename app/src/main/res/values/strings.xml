@@ -16,4 +16,5 @@
 
     <!-- description -->
     <string name="conn_state">connection state</string>
+    <string name="title_activity_help">HelpActivity</string>
 </resources>

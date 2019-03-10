@@ -19,16 +19,17 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toStartOf="@+id/seekBar"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.979"
+        android:contentDescription="@string/conn_state"
         app:srcCompat="@drawable/robot_arm" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -51,7 +52,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button6"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button4" />
+        app:layout_constraintStart_toEndOf="@+id/saveButton" />
 
     <Button
         android:id="@+id/button6"
@@ -89,7 +90,7 @@
         style="@style/CustomSeekBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="168dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:max="100"
@@ -126,6 +127,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:max="100"
+        android:progress="30"
         app:layout_constraintBottom_toTopOf="@+id/hGuideLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
