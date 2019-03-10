@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
             mConnectScanMenuItem.setIcon(R.drawable.ic_bluetooth_blue);
         }
         // Launch the ConnectDeviceActivity to see devices and do scan
-        Intent serverIntent = new Intent(MainActivity.this, ConnectDeviceActivity.class);
+        Intent serverIntent = new Intent(getApplicationContext(), ConnectDeviceActivity.class);
         startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
 
         //setup  bluetooth Service  to make exchange possible
