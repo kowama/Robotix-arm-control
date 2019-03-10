@@ -239,7 +239,17 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setupView() {
         mConnectionStateImageView = findViewById(R.id.connectionStateImageView);
+        playNotConnectedAnimation();
+    }
+
+    private void playNotConnectedAnimation() {
         mConnectionStateImageView.setImageResource(R.drawable.not_connected_animation);
+        AnimationDrawable anim = (AnimationDrawable) mConnectionStateImageView.getDrawable();
+        anim.start();
+    }
+
+    private void playConnectedAnimation() {
+        mConnectionStateImageView.setImageResource(R.drawable.connected_animation);
         AnimationDrawable anim = (AnimationDrawable) mConnectionStateImageView.getDrawable();
         anim.start();
     }
@@ -302,6 +312,7 @@ public class MainActivity extends AppCompatActivity {
 
         //update the icon when connected
         mConnectScanMenuItem.setIcon(R.drawable.ic_bluetooth_connected);
+        playConnectedAnimation();
     }
 
     /**
@@ -315,6 +326,7 @@ public class MainActivity extends AppCompatActivity {
                     switch (msg.arg1) {
                         case BluetoothService.STATE_CONNECTED:
                             setStatus(getString(R.string.title_connected_to, mConnectedDeviceName));
+
                             // mConversationArrayAdapter.clear();
                             break;
                         case BluetoothService.STATE_CONNECTING:
