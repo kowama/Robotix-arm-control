@@ -19,7 +19,7 @@
         android:layout_marginBottom="32dp"
         android:contentDescription="@string/conn_state"
         app:layout_constraintBottom_toTopOf="@+id/saveButton"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar"
+        app:layout_constraintEnd_toStartOf="@+id/servo1"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -87,7 +87,7 @@
         app:srcCompat="@drawable/ic_red_circle" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/servo1"
         style="@style/CustomSeekBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
-        android:id="@+id/seekBar2"
+        android:id="@+id/servo2"
         style="@style/CustomSeekBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -110,15 +110,15 @@
         android:layout_marginBottom="8dp"
         android:max="100"
         android:progress="60"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar3"
+        app:layout_constraintBottom_toTopOf="@+id/servo3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/vGuideLine"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/servo1"
         app:layout_constraintVertical_bias="0.256" />
 
     <SeekBar
-        android:id="@+id/seekBar3"
+        android:id="@+id/servo3"
         style="@style/CustomSeekBar"
         android:layout_width="0dp"
         android:layout_height="28dp"
@@ -132,7 +132,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/vGuideLine"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
+        app:layout_constraintTop_toBottomOf="@+id/servo2" />
 
     <android.support.constraint.Guideline
         android:id="@+id/vGuideLine"

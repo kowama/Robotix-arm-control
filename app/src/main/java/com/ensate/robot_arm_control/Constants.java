@@ -12,6 +12,12 @@ public class Constants {
     public static final int MESSAGE_DEVICE_NAME = 4;
     public static final int MESSAGE_TOAST = 5;
 
+    public static final String SERVO1_PREEFIX = "S1";
+    public static final String SERVO2_PREEFIX = "S2";
+    public static final String SERVO3_PREEFIX = "S3";
+
+
+
     // Key names received from the BluetoothChatService Handler
     public static final String DEVICE_NAME = "layout_device_name";
     public static final String TOAST = "toast";

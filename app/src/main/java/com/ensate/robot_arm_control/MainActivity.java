@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -20,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CONNECT_DEVICE = 1;
     private static final int REQUEST_ENABLE_BT = 2;
     private static final int UPDATE_SETTING = 3;
+
+
+    private SeekBar servo_motor_1_cmd;
+    private SeekBar servo_motor_2_cmd;
+    private SeekBar servo_motor_3_cmd;
+
+
+
 
     /**
      * Name of the connected device
@@ -275,7 +285,55 @@ public class MainActivity extends AppCompatActivity {
         mConnectionStateImageView = findViewById(R.id.connectionStateImageView);
         playNotConnectedAnimation();
         mSavedCommandsHistory = new ArrayList<>();
+
+        // Controls for servo motors
+        servo_motor_1_cmd = findViewById(R.id.servo1);
+        servo_motor_2_cmd = findViewById(R.id.servo2);
+        servo_motor_3_cmd = findViewById(R.id.servo3);
+
+        // Adding listeners to seekBars
+        servo_motor_1_cmd.setOnSeekBarChangeListener(seekBarChangeListener);
+        servo_motor_2_cmd.setOnSeekBarChangeListener(seekBarChangeListener);
+        servo_motor_3_cmd.setOnSeekBarChangeListener(seekBarChangeListener);
     }
+
+
+    // handling event on our seekBars components .
+    SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
+        @RequiresApi(api = Build.VERSION_CODES.N)
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            if(mBluetoothService == null || mBluetoothService.getState() != BluetoothService.STATE_CONNECTED ) {
+                return;
+            }
+
+            switch (seekBar.getId()){
+                case R.id.servo1:
+                    sendBluetoothData(Constants.SERVO1_PREEFIX.concat(Integer.toString(progress)));
+                    break;
+                case R.id.servo2:
+                    sendBluetoothData(Constants.SERVO2_PREEFIX.concat(Integer.toString(progress)));
+                    break;
+                case R.id.servo3:
+                    sendBluetoothData(Constants.SERVO3_PREEFIX.concat(Integer.toString(progress)));
+                    break;
+                default:
+                    return;
+            }
+
+
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+
+        }
+    };
 
     private void playNotConnectedAnimation() {
         mConnectionStateImageView.setImageResource(R.drawable.not_connected_animation);
