@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -22,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -80,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
      * useful members local var
      */
     private boolean doubleBackToExitPressedOnce = false;
+    private ArrayList<String> mSavedCommandsHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +141,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), HelpActivity.class);
                 startActivity(i);
                 return true;
+            }
+            case R.id.action_about: {
+                Intent i = new Intent(getApplicationContext(), AboutActivity.class);
+                startActivity(i);
             }
             default: {
                 return super.onOptionsItemSelected(item);
@@ -203,6 +210,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * save user action
+     **/
+    public void save(View view) {
+        //mSavedCommandsHistory
+        Snackbar.make(view, R.string.saved_history_start, Snackbar.LENGTH_SHORT)
+                .show();
+    }
+
+    /***
+     *run user save actions
+     */
+    public void Run(View view) {
+
+    }
+
+    /**
+     * reset user save actions
+     */
+    public void reset(View view) {
+        mSavedCommandsHistory.clear();
+        Snackbar.make(view, R.string.saved_history_clear, Snackbar.LENGTH_SHORT)
+                .show();
+
+    }
+
+
     /******========Private methods===========******/
     /**
      * hide SystemUI to make App full screen
@@ -240,6 +274,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupView() {
         mConnectionStateImageView = findViewById(R.id.connectionStateImageView);
         playNotConnectedAnimation();
+        mSavedCommandsHistory = new ArrayList<>();
     }
 
     private void playNotConnectedAnimation() {
